@@ -1,0 +1,27 @@
+body {
+    font-family: 'Roboto-Regular';
+    font-weight: 400;
+    color: #FFFFFF;
+    font-size: 14px;
+    line-height: 16px;
+    background-color: #000000;
+    margin: 0;
+
+}
+
+.container {
+    width: 100%;
+    padding: 24px 20px 34px;
+
+    @media (min-width: 768px) {
+        padding: 34px 34px 54px;
+    }
+}
+
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    outline: none;
+}
