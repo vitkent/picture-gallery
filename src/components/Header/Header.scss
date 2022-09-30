@@ -1,0 +1,13 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+
+    &__icon-wrap {
+        svg {
+            width: 64px;
+            height: 64px;
+        }
+    }
+}
