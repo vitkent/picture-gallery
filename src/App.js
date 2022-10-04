@@ -15,7 +15,7 @@ const App = () => {
   useEffect(() => {
       setLoading(true);
       axios.all([
-          axios.get('https://test-front.framework.team/paintings'),
+          axios.get('https://test-front.framework.team/paintings?_limit=12'),
           axios.get('https://test-front.framework.team/authors'),
           axios.get('https://test-front.framework.team/locations')
       ]).then(responce => {

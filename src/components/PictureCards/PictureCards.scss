@@ -1,5 +1,26 @@
 .picture-cards {
+    margin-bottom: 30px;
     &__item {
         margin-bottom: 20px;
+    }
+
+    @media (min-width: 768px) {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 -10px 15px;
+
+        &__item {
+            width: calc(50% - 20px);
+            margin: 0 10px 20px;
+        }
+    }
+
+    @media (min-width: 1024px) {
+        margin: 0 -10px 20px;
+
+        &__item {
+            width: calc(100%/3 - 20px);
+            margin: 0 10px 20px;
+        }
     }
 }

@@ -61,4 +61,16 @@
         line-height: 20px;
         color: #000000;
     }
+
+    @media (min-width: 768px) {
+        height: calc(100vw * 249 / 768);
+    }
+
+    @media (min-width: 1024px) {
+        height: calc(100vw * 230 / 1024);
+    }
+
+    @media (min-width: 1366px) {
+        height: calc(100vw * 275 / 1366);
+    }
 }

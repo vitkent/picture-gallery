@@ -21,14 +21,11 @@ const PictureCards = ({result, loading, searchName}) => {
     ))
 
     return (
-        <div className="picture-cards">
-            { loading
-                ?   <Preloader width='150' height='150'/>
-                :   <ul className="picture-cards__list">
-                        {cards}
-                    </ul>
-            }
-        </div>
+        loading
+            ?   <Preloader width='150' height='150'/>
+            :   <ul className="picture-cards">
+                    {cards}
+                </ul>
     )
 }
 

@@ -16,6 +16,14 @@ body {
     @media (min-width: 768px) {
         padding: 34px 34px 54px;
     }
+
+    @media (min-width: 1024px) {
+        padding: 35px 42px 62px;
+    }
+
+    @media (min-width: 1366px) {
+        padding: 35px 123px 100px;
+    }
 }
 
 .button {
@@ -59,7 +67,6 @@ body {
     appearance: none;
     outline: none;
     cursor: pointer;
-    margin-bottom: 15px;
 
     &::placeholder {
         color: rgba(255, 255, 255, 0.3);

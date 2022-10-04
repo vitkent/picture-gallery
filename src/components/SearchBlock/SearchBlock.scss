@@ -1,3 +1,19 @@
 .search-block {
     margin-bottom: 45px;
+
+    &__item {
+        margin-bottom: 15px;
+    }
+
+    @media (min-width: 768px) {
+        &__list {
+            display: flex;
+            margin: 0 -10px;
+        }
+
+        &__item {
+            width: calc(25% - 20px);
+            margin: 0 10px 0;
+        }
+    }
 }
