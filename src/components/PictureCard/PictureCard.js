@@ -11,15 +11,15 @@ const PictureCard = ({ imageUrl, namePicture, name, created, location }) => {
             <div className="picture-card__content">
                 <span className="picture-card__title">{namePicture}</span>
                 <div className="picture-card__description">
-                    <div className="picture-card__block">
+                    <div className="picture-card__group">
                         <span className="picture-card__label">Author:</span>
                         <span className="picture-card__value">{name}</span>
                     </div>
-                    <div className="picture-card__block">
+                    <div className="picture-card__group">
                         <span className="picture-card__label">Created:</span>
                         <span className="picture-card__value">{created}</span>
                     </div>
-                    <div className="picture-card__block">
+                    <div className="picture-card__group">
                         <span className="picture-card__label">Location:</span>
                         <span className="picture-card__value">{location}</span>
                     </div>
