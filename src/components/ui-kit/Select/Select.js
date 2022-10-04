@@ -5,7 +5,7 @@ import Arrow from '../../Icons/Arrow';
 import './Select.scss';
 
 //todo: checkbox - не используется в компоненте
-const Select = ({children, disabled, multiple, options, placeholder, onChange}) => {
+const Select = ({disabled, multiple, options, placeholder, onChange}) => {
     const selectRef = useRef();
 
     const [isSelectOpen, setSelectOpen] = useState(false);
@@ -139,12 +139,8 @@ const Select = ({children, disabled, multiple, options, placeholder, onChange}) 
 
 Select.defaultProps = {
     disabled: false,
-    required: false,
     multiple: false,
     placeholder: '',
-    description: '',
-    checkboxID: '',
-    selectID: '',
 };
 
 export default Select;

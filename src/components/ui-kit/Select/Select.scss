@@ -26,7 +26,8 @@
         box-sizing: border-box;
         max-height: 335px;
         z-index: 1;
-        padding: 10px 8px 20px 20px;
+        overflow: hidden;
+        padding-right: 8px;
 
         .os-host {
             max-height: 335px;
@@ -44,20 +45,21 @@
     }
 
     &__menu {
-        padding: 0;
+        padding: 10px 0;
         margin: 0;
         overflow: hidden;
     }
 
     &__option {
-        font-family: 'RobotoMedium';
+        font-family: 'Roboto-Medium';
         font-weight: 500;
         font-size: 16px;
         line-height: 19px;
         color: var(--font-color);
         display: flex;
         align-items: center;
-        padding: 10px 10px 10px 0;
+        padding: 10px 10px 10px 30px;
+        margin-right: 8px;
         position: relative;
         background-color: transparent;
         transition: background-color .3s ease, color .3s ease;
@@ -113,6 +115,12 @@
         .select__trigger {
             border-bottom: none;
             border-radius: 8px 8px 0 0;
+        }
+    }
+
+    @media (min-width: 768px) {
+        &__option {
+            padding-left: 15px;
         }
     }
 }
