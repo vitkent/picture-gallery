@@ -1,12 +1,12 @@
 body {
     font-family: 'Roboto-Regular';
     font-weight: 400;
-    color: #FFFFFF;
     font-size: 14px;
     line-height: 16px;
-    background-color: #000000;
+    color: var(--font-color);
+    background-color: var(--background-color);
     margin: 0;
-
+    transition: background-color .3s ease;
 }
 
 .container {
@@ -34,14 +34,15 @@ body {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    transition-property: color, background-color, border-color, opacity;
-    transition-duration: 0.3s;
-    transition-timing-function: ease-in;
     background-color: transparent;
 
     svg {
         width: 22px;
         height: 22px;
+        path {
+            fill: var(--font-color);
+            transition: fill 0.3s ease;
+        }
     }
 }
 
@@ -54,13 +55,13 @@ body {
 }
 
 .input {
-    background-color: #0C0C0C;
-    border: 1px solid #FFFFFF;
-    color: #ffffff;
-    border-radius: 8px;
-    display: block;
     font-size: 14px;
     line-height: 16px;
+    color: var(--font-color);
+    background-color: var(--background-input);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    display: block;
     width: 100%;
     height: inherit;
     padding: 15px;
@@ -69,6 +70,6 @@ body {
     cursor: pointer;
 
     &::placeholder {
-        color: rgba(255, 255, 255, 0.3);
+        color: var(--placeholder-color);
     }
 }

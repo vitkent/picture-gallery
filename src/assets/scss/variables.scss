@@ -1,0 +1,23 @@
+:root {
+    //dark
+    --background-color-dark: #000000;
+    --font-color-dark: #ffffff;
+    --background-input-dark: #0C0C0C;
+    --border-color-dark: #ffffff;
+    --placeholder-color-dark: rgba(255, 255, 255, 0.3);
+
+    //light
+    --background-color-light: #ffffff;
+    --font-color-light: #000000;
+    --background-input-light: #ffffff;
+    --border-color-light: rgba(0, 0, 0, 0.3);
+    --placeholder-color-light: rgba(0, 0, 0, 0.3);
+
+    //default
+    --background-color: var(--background-color-dark);
+    --font-color: var(--font-color-dark);
+    --background-input: var(--background-input-dark);
+    --border-color: var(--border-color-dark);
+    --placeholder-color: var(--placeholder-color-dark);
+
+}

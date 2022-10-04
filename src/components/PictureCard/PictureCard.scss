@@ -4,6 +4,7 @@
         position: relative;
         border-radius: 20px;
         overflow: hidden;
+        cursor: pointer;
 
         &:hover {
             .picture-card__description {
@@ -46,8 +47,6 @@
     &__label {
         font-family: 'Roboto-Medium';
         font-weight: 500;
-        // font-family: 'Roboto-Bold';
-        // font-weight: 700;
         font-size: 13px;
         line-height: 20px;
         color: #000000;
