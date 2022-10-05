@@ -1,11 +1,10 @@
 import React, {useEffect, useRef, useState} from 'react';
 import {OverlayScrollbarsComponent} from 'overlayscrollbars-react';
 import Arrow from '../../Icons/Arrow';
-
+import Close from '../../Icons/Close';
 import './Select.scss';
 
-//todo: checkbox - не используется в компоненте
-const Select = ({disabled, multiple, options, placeholder, onChange}) => {
+const Select = ({options, placeholder}) => {
     const selectRef = useRef();
 
     const [isSelectOpen, setSelectOpen] = useState(false);
@@ -43,46 +42,23 @@ const Select = ({disabled, multiple, options, placeholder, onChange}) => {
             newIDs = newIDs.filter((elem) => elem !== id);
             newValues = newValues.filter((elem) => elem !== value);
         } else {
-            if (multiple) {
-                newIDs.push(id);
-                newValues.push(value);
-            } else {
                 newIDs = [id];
                 newValues = [value];
-            }
         }
 
         setSelectedOptionsID(newIDs);
         setSelectedOptions(newValues);
 
-        onChange && onChange(newIDs);
-
-        if (!multiple) {
-            setSelectOpen(false);
-        }
+        setSelectOpen(false);
     };
 
-    //элементы
+    //Отрисовывает либо выбранный айтем либо placeholder
     const renderInputText = () =>
-        multiple && selectedOptions.length
-            ? options.map((value, index) => {
-                const result = checkIsSelected(value.id)
-                    ? <div key={value.text + index} className='select__multi-value'>
-                        <div className='select__multi-label'>{value.text}</div>
-                        <button
-                            className='select__multi-remove'
-                            onClick={(event) => onSelectInputText(event, value.text, value.text)}
-                        >
-                                close
-                        </button>
-                    </div>
-                    : null;
-                return result;
-            })
-            : !multiple && selectedOptions.length
-                ? selectedOptions
-                : placeholder;
+        selectedOptions.length
+            ? selectedOptions
+            : placeholder
 
+    //Рендерить список элементов, если селект открыт
     const renderOptions = () =>
         isSelectOpen
             ? options.map((elem, index) =>
@@ -90,26 +66,24 @@ const Select = ({disabled, multiple, options, placeholder, onChange}) => {
                     onClick={(event) => onSelectInputText(event, elem.text, elem.id)}
                     id={elem.id}
                     key={index}
-                    className={[
-                        'select__option',
-                        checkIsSelected(elem.id) ? 'select__option--is-selected' : '',
-                    ].join(' ')}
+                    className='select__option'
                 >
                     <span className='select__option-label'>{elem.text}</span>
                 </li>
             )
             : null
 
+    //Очистка выбранного айтема в селекте
+    const close = () =>
+        selectedOptions && selectedOptions.length
+            ?   <div className='select__close-icon' onClick={(e) => {e.preventDefault();}}>
+                    {React.createElement(Close)}
+                </div>
+            : null
+
     return (
         <div className={['select', isSelectOpen ? 'active' : ''].join(' ')} ref={selectRef}>
-            <div
-                className='select__trigger'
-                onClick={() => {
-                    if (!disabled) {
-                        setSelectOpen(!isSelectOpen);
-                    }
-                }}
-            >
+            <div className='select__trigger' onClick={() => setSelectOpen(!isSelectOpen)}>
                 <div className={[
                         'select__input-text',
                         selectedOptions && selectedOptions.length
@@ -119,8 +93,11 @@ const Select = ({disabled, multiple, options, placeholder, onChange}) => {
                 >
                     {renderInputText()}
                 </div>
-                <div className='select__arrow-icon'>
-                    {React.createElement(Arrow)}
+                <div className='select__icon-wrap'>
+                    {close()}
+                    <div className='select__arrow-icon'>
+                        {React.createElement(Arrow)}
+                    </div>
                 </div>
             </div>
             <div className='select__menu-wrap'>
@@ -135,12 +112,6 @@ const Select = ({disabled, multiple, options, placeholder, onChange}) => {
             </div>
         </div>
     );
-};
-
-Select.defaultProps = {
-    disabled: false,
-    multiple: false,
-    placeholder: '',
 };
 
 export default Select;

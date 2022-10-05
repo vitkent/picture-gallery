@@ -25,13 +25,13 @@ const SearchBlock = ({authorsList, locationsList, searchName, onChangeSearchName
                     <input className={["input", "input--name"].join(' ')} value={searchName} onChange={onChangeSearchName} placeholder="Name" type="text"/>
                 </li>
                 <li className="search-block__item">
-                    <Select selectID='select-3' placeholder='Author' options={authors} />
+                    <Select placeholder='Author' options={authors} />
                 </li>
                 <li className="search-block__item">
-                    <Select selectID='select-4' placeholder='Location' options={locations} />
+                    <Select placeholder='Location' options={locations} />
                 </li>
                 <li className="search-block__item">
-                    <Select selectID='select-5' placeholder='Created' options={locations} />
+                    <Select placeholder='Created' options={locations} />
                 </li>
             </ul>
         </form>
