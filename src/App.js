@@ -17,19 +17,24 @@ const App = () => {
   const [pageCount, setPageCount] = useState(0)
 
   const baseUrl = 'https://test-front.framework.team/';
+  const limit = 12
 
   useEffect(() => {
       setLoading(true);
       axios.all([
-          axios.get(`${baseUrl}paintings?_limit=12&_page=${currentPage}`),
+          axios.get(`${baseUrl}paintings`, {
+            params: {
+              _limit: limit,
+              _page: currentPage
+            }
+          }),
           axios.get(`${baseUrl}authors`),
           axios.get(`${baseUrl}locations`),
-          axios.get(`${baseUrl}paintings`),
       ]).then(responce => {
           setState(responce[0].data)
           setAuthors(responce[1].data)
           setLocations(responce[2].data)
-          setPageCount(Math.ceil(responce[3].data.length/12))
+          setPageCount(Math.ceil(responce[0].headers['x-total-count'] / limit))
           setLoading(false);
       })
   }, [currentPage])
@@ -47,10 +52,12 @@ const App = () => {
 
   const result = editState.map((item) => Object.assign(item, authors.find((item2) => item2.id === item.authorId), locations.find((item3) => item3.id === item.locationId)))
 
+  // Фильтры
   const onChangeSearchName = (event) => {
     setSearchName(event.target.value);
   }
 
+  // Пагинация
   const nextPage = () => {
     setCurrentPage(prev => prev + 1)
   }
