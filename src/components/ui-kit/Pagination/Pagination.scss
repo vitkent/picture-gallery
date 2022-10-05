@@ -1,7 +1,4 @@
 .pagination {
-    &__page {
-        &--active {
-            font-size: 40PX;
-        }
-    }
+    width: 280px;
+    display: flex;
 }

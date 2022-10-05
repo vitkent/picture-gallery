@@ -2,10 +2,8 @@ import React, { useState, useEffect } from "react";
 import Header from "./components/Header/Header";
 import PictureCards from "./components/PictureCards/PictureCards";
 import SearchBlock from "./components/SearchBlock/SearchBlock";
+import Pagination from "./components/ui-kit/Pagination/Pagination";
 import axios from "axios";
-
-import ArrowNext from "./components/Icons/ArrowNext";
-import ArrowNextDouble from "./components/Icons/ArrowNextDouble";
 
 const App = () => {
 
@@ -75,7 +73,7 @@ const App = () => {
       pages.push(i);
   }
 
-  const PageChange = (page) => {
+  const pageChange = (page) => {
     setCurrentPage(page)
   }
 
@@ -83,29 +81,27 @@ const App = () => {
     <div className="App">
       <div className="container">
         <Header/>
-        <SearchBlock authorsList={authors} locationsList={locations} searchName={searchName} onChangeSearchName={onChangeSearchName}/>
-        <PictureCards result={result} loading={loading} searchName={searchName}/>
-
-        <div className="pagination">
-          <button className={["button", "button--prev", "button--double", currentPage === 1 ? "disabled" : ""].join(' ')} onClick={firstPage}>
-            {React.createElement(ArrowNextDouble)}
-          </button>
-          <button className={["button", "button--prev", currentPage === 1 ? "disabled" : ""].join(' ')} onClick={prevPage}>
-            {React.createElement(ArrowNext)}
-          </button>
-          {pages.map((page, key) => (
-                <span key={key}
-                className={["pagination__page", currentPage === page ? "pagination__page--active" : ""].join(' ')}
-                onClick={() => PageChange(page)}
-                >{page}</span>
-            ))}
-          <button className={["button", "button--next", currentPage === pageCount ? "disabled" : ""].join(' ')} onClick={nextPage}>
-            {React.createElement(ArrowNext)}
-          </button>
-          <button className={["button", "button--next", "button--double", currentPage === pageCount ? "disabled" : ""].join(' ')} onClick={lastPage}>
-            {React.createElement(ArrowNextDouble)}
-          </button>
-        </div>
+        <SearchBlock
+          authorsList={authors}
+          locationsList={locations}
+          searchName={searchName}
+          onChangeSearchName={onChangeSearchName}
+        />
+        <PictureCards
+          result={result}
+          loading={loading}
+          searchName={searchName}
+        />
+        <Pagination
+          nextPage={nextPage}
+          prevPage={prevPage}
+          firstPage={firstPage}
+          lastPage={lastPage}
+          pageChange={pageChange}
+          pages={pages}
+          currentPage={currentPage}
+          pageCount={pageCount}
+        />
       </div>
     </div>
   );

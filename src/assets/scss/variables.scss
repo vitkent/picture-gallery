@@ -5,6 +5,7 @@
     --background-input-dark: #0C0C0C;
     --border-color-dark: #ffffff;
     --placeholder-color-dark: rgba(255, 255, 255, 0.3);
+    --hover-color-dark: #464646;
 
     //light
     --background-color-light: #ffffff;
@@ -12,6 +13,7 @@
     --background-input-light: #ffffff;
     --border-color-light: rgba(0, 0, 0, 0.3);
     --placeholder-color-light: rgba(0, 0, 0, 0.3);
+    --hover-color-light: #EDEDED;
 
     //default
     --background-color: var(--background-color-dark);
@@ -19,5 +21,6 @@
     --background-input: var(--background-input-dark);
     --border-color: var(--border-color-dark);
     --placeholder-color: var(--placeholder-color-dark);
+    --hover-color: var(--hover-color-dark);
 
 }

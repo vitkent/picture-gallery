@@ -35,6 +35,7 @@ body {
     align-items: center;
     justify-content: center;
     background-color: transparent;
+    transition: background-color .3s ease, color 0.3s ease;
     padding: 0;
 
     svg {
@@ -47,20 +48,57 @@ body {
     }
 
     &--next, &--prev {
+        padding: 13px 15px;
+        border: 1px solid var(--font-color);
         svg {
             width: 8px;
             height: 13px;
         }
+
+        &:hover {
+            background-color: var(--hover-color);
+        }
     }
 
-    &--prev {
+    &--prev, &--prev-double {
         transform: rotate(180deg);
     }
 
-    &--double {
+    &--next-double, &--prev-double {
+        border: 1px solid var(--font-color);
+        padding: 13px 12px;
         svg {
             width: 13px;
             height: 13px;
+        }
+
+        &:hover {
+            background-color: var(--hover-color);
+        }
+    }
+
+    &--next-double {
+        border-radius: 0 8px 8px 0;
+    }
+
+    &--prev-double {
+        border-radius: 0 8px 8px 0;
+    }
+
+    &--page {
+        font-size: 18px;
+        line-height: 20px;
+        padding: 9px 15px;
+        border: 1px solid var(--font-color);
+
+        &:hover {
+            background-color: var(--hover-color);
+        }
+
+        &.active {
+            background-color: var(--font-color);
+            color: var(--background-color);
+            pointer-events: none;
         }
     }
 
