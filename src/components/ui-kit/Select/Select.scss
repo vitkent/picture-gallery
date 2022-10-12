@@ -114,6 +114,10 @@
             font-size: 16px;
             line-height: 20px;
             padding-right: 10px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            width: calc(100% - 10px);
         }
     }
 
